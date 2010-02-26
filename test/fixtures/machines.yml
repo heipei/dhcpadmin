@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  mac: MyString
+  comment: MyString
+  creator: MyString
+  valid_until: 2010-02-26 22:58:54
+
+two:
+  mac: MyString
+  comment: MyString
+  creator: MyString
+  valid_until: 2010-02-26 22:58:54

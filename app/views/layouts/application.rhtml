@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title>Alania DHCPAdmin - <%= controller.controller_name.capitalize %></title>
+	<link rel="shortcut icon" href="/mail/favicon.ico">
+	<%= stylesheet_link_tag 'style' %>
+</head>
+
+<body>
+
+<div class="menuframe_outter">
+  <div class="menuframe">
+    <div id="logo"><%= link_to image_tag("logo.png"), :controller => :admin, :action => :welcome %></div>
+    <h1>Alania DHCPAdmin</h1>
+  </div>
+
+  <div class="textmenu">
+    <div>
+      <%= link_to image_tag("room.png"), :controller => :room %>
+      <%= link_to "Zimmer",  :controller => :room %>
+    </div>
+
+    <div>
+      <%= link_to image_tag("table.png"), :controller => :pool %>
+      <%= link_to "Dynamic",  :controller => :pool %>
+    </div>
+  </div>
+</div>
+
+<div class="contentframe">
+	<p style="color: green"><%= flash[:notice] %></p>
+	<div id="error" style="color:red;font-weight:bold;display:none;">
+	Konnte nicht gel&ouml;scht werden...
+	</div>
+
+	<%= @content_for_layout %>
+</div>
+
+</body>
+
+</html>

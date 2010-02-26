@@ -1,0 +1,160 @@
+body {
+	background-color: #fff; 
+	color: #333;
+}
+
+img {
+	border: 0px;
+}
+
+body, p, td {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 13px;
+	line-height: 14px;
+	padding-left: 15px;
+}
+
+
+table {
+	border: 1px;
+	border-style: solid;
+	border-collapse: collapse;
+}
+
+tr.menu {
+	border-bottom: 1px solid gray;
+	border-top: 1px solid gray;
+	padding-left: 15px;
+}
+
+tr.menu td, table.sortable tr th {
+	padding-left: 5px;
+	padding-right: 5px;
+	border-right: 1px solid gray;
+	border-left: 1px solid gray;
+	vertical-align: center;
+}
+
+tr.menu:hover {
+	background-color: #E5FFFF;
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+	padding: 4px 4px 4px 4px;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:visited {
+	color: #333333;
+}
+
+
+tr.searchbox:hover {
+	background-color: white;
+}
+
+.fieldWithErrors {
+	padding: 2px;
+	background-color: red;
+	display: table;
+}
+
+div.fieldWithErrors input {
+	background-color: #FFCCCC;
+}
+
+#errorExplanation {
+	width: 392px;
+	border: 2px solid red;
+	padding: 7px;
+	padding-bottom: 2px;
+	margin-bottom: 20px;
+	background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+	text-align: left;
+	font-weight: bold;
+	padding: 5px 5px 5px 5px;
+	font-size: 12px;
+	margin: -7px;
+	background-color: #c00;
+	color: #fff;
+}
+
+#errorExplanation p {
+	color: #333;
+	margin-bottom: 0;
+	padding: 5px;
+}
+
+#errorExplanation ul li {
+	font-size: 12px;
+	list-style: square;
+}
+
+table.sortable thead {
+	text-align: center;
+	background-color:#eee;
+	color:#666666;
+	font-weight: bold;
+	cursor: default;
+}
+
+div#logo {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	padding: 5px;
+}
+
+div.menuframe h1 {
+	position: absolute;
+	top: -5px;
+	left: 140px;
+	font-size: 25pt;
+	font-style: italic;
+	font-family: "Arial";
+	color: black;
+}
+
+div.textmenu {
+	margin-left: 125px;
+	margin-top: 65px;
+}
+
+div.textmenu div {
+	text-align: center;
+	font-weight: bold;
+	font-size: 85%;
+	width: 75px;
+	float:left;
+}
+
+div.menuframe_outter {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 80px;
+	border-bottom: 1px solid black;
+	background-color: gray;
+	margin: 0px;
+}
+
+div.contentframe {
+	margin-top: 150px;
+}
+
+th {
+	padding-left: 5px;
+}
+
+tr {
+	border-top: 1px solid;
+}

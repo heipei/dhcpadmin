@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  dns: MyString
+  ip: MyString
+  machine_id: 
+
+two:
+  dns: MyString
+  ip: MyString
+  machine_id: 

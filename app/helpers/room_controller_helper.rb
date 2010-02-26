@@ -1,0 +1,2 @@
+module RoomControllerHelper
+end

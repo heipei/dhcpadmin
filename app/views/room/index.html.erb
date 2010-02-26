@@ -1,0 +1,8 @@
+<table class="sortable">
+<tr><th>DNS-Name</th><th>IP-Adresse</th><th>MAC-Adresse</th><th>Aktionen</th></tr>
+
+<% @rooms.each do |room| %>
+  <tr><td><%= room.dns %></td><td><tt><%= room.ip %></tt></td><td><tt><%= room.machine ? room.machine.mac : "Nicht vergeben" %></tt></td><td></td></tr>
+<% end %>
+
+</table>
