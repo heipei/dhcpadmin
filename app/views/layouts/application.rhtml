@@ -3,13 +3,14 @@
 	<title>Alania DHCPAdmin - <%= controller.controller_name.capitalize %></title>
 	<link rel="shortcut icon" href="/mail/favicon.ico">
 	<%= stylesheet_link_tag 'style' %>
+	<%= javascript_include_tag :defaults, 'sorttable', :cache => true %>
 </head>
 
 <body>
 
 <div class="menuframe_outter">
   <div class="menuframe">
-    <div id="logo"><%= link_to image_tag("logo.png"), :controller => :admin, :action => :welcome %></div>
+    <div id="logo"><%= link_to image_tag("logo.png"), :controller => :pool %></div>
     <h1>Alania DHCPAdmin</h1>
   </div>
 
@@ -20,13 +21,28 @@
     </div>
 
     <div>
+      <%= link_to image_tag("add_room.png"), :controller => :room, :action => :new %>
+      <%= link_to "Neues Zimmer",  :controller => :room, :action => :new %>
+    </div>
+
+    <div>
       <%= link_to image_tag("table.png"), :controller => :pool %>
-      <%= link_to "Dynamic",  :controller => :pool %>
+      <%= link_to "Dynamischer Pool",  :controller => :pool %>
+    </div>
+
+    <div>
+      <%= link_to image_tag("add_machine.png"), :controller => :pool, :action => :new %>
+      <%= link_to "Neues Ger&auml;t",  :controller => :pool, :action => :new %>
+    </div>
+
+    <div>
+      <%= link_to_remote image_tag("config.png"), :url => {:controller => :pool, :action => :export}, :update => "content" %>
+      <%= link_to_remote "Config generieren", :url => {:controller => :pool, :action => :export}, :update => "content" %>
     </div>
   </div>
 </div>
 
-<div class="contentframe">
+<div class="contentframe" id="content">
 	<p style="color: green"><%= flash[:notice] %></p>
 	<div id="error" style="color:red;font-weight:bold;display:none;">
 	Konnte nicht gel&ouml;scht werden...

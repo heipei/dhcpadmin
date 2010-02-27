@@ -3,7 +3,8 @@ class CreateRooms < ActiveRecord::Migration
     create_table :rooms do |t|
       t.string :dns,	:null => false
       t.string :ip,	:null => false
-      t.integer :machine_id
+      t.string :mac,	:null => false, :default => "00:00:00:00:00:2f"
+      t.string :comment
 
       t.timestamps
     end

@@ -1,6 +1,7 @@
 body {
   background-color: #fff; 
-  color: #333;
+  color: black;
+  line-height: 18px;
 }
 
 img {
@@ -23,10 +24,19 @@ table, table tr td, table tr th {
   padding: 2px;
   padding-left: 5px;
   padding-right: 5px;
+  line-height: 12px;
 }
 
 table {
-  border-top: 2px solid black;
+  border-top: 1px solid black;
+}
+
+tr.inactive td {
+  background-color: #FFD8CC;
+}
+
+tr.active td {
+  background-color: #DAFFCC;
 }
 
 tr.menu {
@@ -142,6 +152,7 @@ div.textmenu div {
   font-size: 85%;
   width: 75px;
   float:left;
+  line-height: 12px;
 }
 
 div.menuframe_outter {
@@ -156,5 +167,17 @@ div.menuframe_outter {
 }
 
 div.contentframe {
-  margin-top: 150px;
+  margin-top: 140px;
+}
+
+table.form tr td {
+  background-color: #eee;
+}
+
+table.form tr th {
+  background-color: #ddd;
+}
+
+table.none, table.none tr, table.none tr td {
+  border: 0px;
 }

@@ -4,7 +4,8 @@ class CreateMachines < ActiveRecord::Migration
       t.string :mac,		:null => false
       t.string :comment,	:null => false
       t.string :creator, 	:null => false
-      t.timestamp :valid_until
+      t.string :category
+      t.boolean :active, 	:default => true
 
       t.timestamps
     end

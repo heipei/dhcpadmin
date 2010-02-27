@@ -1,8 +1,0 @@
-<table class="sortable">
-<tr><th>MAC-Adresse</th><th>Kommentar</th><th>Verantwortlich</th><th>G&uuml;ltigkeit</th><th>Angelegt</th><th>Aktionen</th></tr>
-
-<% @machines.each do |m| %>
-  <tr><td><tt><%= m.mac %></tt></td><td><%= m.comment %></td><td><%= m.creator %></td><td><%= m.valid_until %></td><td><%= m.created_at %></td><td></td></tr>
-<% end %>
-
-</table>

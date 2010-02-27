@@ -1,0 +1,19 @@
+<table class="sortable">
+<tr><th>MAC-Adresse</th><th>Beschreibung</th><th>Kategorie</th><th>User</th><th>Alter</th><th>Aktionen</th></tr>
+
+<% @machines.each do |m| %>
+  <tr class="<%= m.active ? "active" : "inactive" %>">
+    <td><tt><%= m.mac %></tt></td><td><%= m.comment %></td><td><%= m.category %></td><td><%= m.creator %></td><td><%= l(m.created_at, :format => :jojo) %></td>
+    <td><%= link_to image_tag("trash.png"), {:action => :delete, :id => m.id}, {:confirm => "Wirklich l&ouml;schen?"} %>
+    <%= link_to image_tag("edit.png"), :action => :edit, :id => m.id %>
+    <% if m.active %>
+      <%= link_to image_tag("inactive.gif"), :action => :deactivate, :id => m.id %>
+    <% else %>
+      <%= link_to image_tag("activate.png"), :action => :activate, :id => m.id %>
+    <% end %>
+    </td>
+  
+  </tr>
+<% end %>
+
+</table>

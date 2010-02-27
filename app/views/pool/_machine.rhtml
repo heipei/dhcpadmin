@@ -1,0 +1,19 @@
+<% form_for @machine, :url => {:action => form_action} do |f| %>
+
+<table class="form">
+<tr><th colspan="2">Computer</th></tr>
+<%= f.hidden_field :id %>
+<tr><td><%= f.label :mac, "MAC-Adresse" %></td><td><%= f.text_field :mac, :size => 13 %></td></tr>
+<tr><td><%= f.label :creator, "Verantwortlich" %></td><td><%= f.text_field :creator, :size => 13 %></td></tr>
+<tr><td><%= f.label :category, "Kategorie" %></td><td><%= f.select :category, ["Gast", "Hausbewohner", "AH/HD", "Experimental"] %></td></tr>
+<tr><td><%= f.label :comment, "Kommentar" %></td><td><%= f.text_field :comment, :size => 40 %></td></tr>
+<% if @machine.id %>
+<tr><td><%= f.label :created_at, "Angelegt" %></td><td><%= @machine.created_at %></td></tr>
+<tr><td><%= f.label :updated_at, "Ge&auml;ndert" %></td><td><%= @machine.updated_at %></td></tr>
+<% end %>
+</table>
+
+<br/>
+<%= f.submit "Speichern" %>
+
+<% end %>

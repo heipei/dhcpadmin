@@ -1,0 +1,19 @@
+<% form_for @room, :url => {:action => form_action} do |f| %>
+
+<table class="form">
+<tr><th colspan="2">Zimmer</th></tr>
+<%= f.hidden_field :id %>
+<tr><td><%= f.label :dns, "Hostname" %></td><td><%= f.text_field :dns, :size => 20 %></td></tr>
+<tr><td><%= f.label :ip, "IP-Adresse" %></td><td><%= f.text_field :ip, :size => 20 %></td></tr>
+<tr><td><%= f.label :mac, "MAC-Adresse" %></td><td><%= f.text_field :mac, :size => 20 %></td></tr>
+<tr><td><%= f.label :comment, "Kommentar" %></td><td><%= f.text_field :comment, :size => 20 %></td></tr>
+<% if @room.id %>
+<tr><td><%= f.label :created_at, "Angelegt" %></td><td><%= @room.created_at %></td></tr>
+<tr><td><%= f.label :updated_at, "Ge&auml;ndert" %></td><td><%= @room.updated_at %></td></tr>
+<% end %>
+</table>
+
+<br/>
+<%= f.submit "Speichern" %>
+
+<% end %>

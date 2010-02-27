@@ -12,18 +12,20 @@
 ActiveRecord::Schema.define(:version => 20100226215854) do
 
   create_table "machines", :force => true do |t|
-    t.string   "mac",         :null => false
-    t.string   "comment",     :null => false
-    t.string   "creator",     :null => false
-    t.datetime "valid_until"
+    t.string   "mac",                          :null => false
+    t.string   "comment",                      :null => false
+    t.string   "creator",                      :null => false
+    t.string   "category"
+    t.boolean  "active",     :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "rooms", :force => true do |t|
-    t.string   "dns",        :null => false
-    t.string   "ip",         :null => false
-    t.integer  "machine_id"
+    t.string   "dns",                                         :null => false
+    t.string   "ip",                                          :null => false
+    t.string   "mac",        :default => "00:00:00:00:00:2f", :null => false
+    t.string   "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
