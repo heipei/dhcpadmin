@@ -133,8 +133,8 @@ div#logo {
 
 div.menuframe h1 {
   position: absolute;
-  top: -5px;
-  left: 140px;
+  top: 5px;
+  left: 145px;
   font-size: 25pt;
   font-style: italic;
   font-family: "Arial";
@@ -180,4 +180,16 @@ table.form tr th {
 
 table.none, table.none tr, table.none tr td {
   border: 0px;
+}
+
+input.editor_field {
+  font-family: fixed-width;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
 }

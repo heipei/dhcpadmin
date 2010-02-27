@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(:version => 20100226215854) do
   end
 
   create_table "rooms", :force => true do |t|
-    t.string   "dns",                                         :null => false
-    t.string   "ip",                                          :null => false
-    t.string   "mac",        :default => "00:00:00:00:00:2f", :null => false
+    t.string   "dns",        :null => false
+    t.string   "ip",         :null => false
+    t.string   "mac",        :null => false
     t.string   "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
