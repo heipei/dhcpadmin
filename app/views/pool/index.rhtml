@@ -5,7 +5,7 @@
   <% @machine = m %>
   <tr class="<%= m.active ? "active" : "inactive" %>">
     <td><tt><%= m.mac %></tt></td><td><%= in_place_editor_field :machine, :comment %></td><td><%= m.category %></td><td><%= m.creator %></td><td><%= l(m.created_at, :format => :jojo) %></td>
-    <td><%= link_to image_tag("trash.png"), {:action => :delete, :id => m.id}, {:confirm => "Wirklich l&ouml;schen?"} %>
+    <td><%= link_to image_tag("trash.png"), {:action => :delete, :id => m.id}, {:confirm => "Wirklich l&ouml;schen?", :method => :post} %>
     <%= link_to image_tag("edit.png"), :action => :edit, :id => m.id %>
     <% if m.active %>
       <%= link_to image_tag("inactive.gif"), :action => :deactivate, :id => m.id %>

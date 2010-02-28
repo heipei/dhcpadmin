@@ -1,4 +1,5 @@
 class PoolController < ApplicationController
+  verify :method => :post, :only => :delete, :redirect_to => { :action => :index }
 
   in_place_edit_for :machine, :mac
   in_place_edit_for :machine, :comment

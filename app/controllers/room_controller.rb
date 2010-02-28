@@ -1,4 +1,5 @@
 class RoomController < ApplicationController
+  verify :method => :post, :only => :delete, :redirect_to => { :action => :index }
 
   in_place_edit_for :room, :mac
 
@@ -33,4 +34,9 @@ class RoomController < ApplicationController
     end
   end
 
+  def delete
+    room = Room.find(params[:id])
+    room.destroy
+    redirect_to :action => :index
+  end
 end
