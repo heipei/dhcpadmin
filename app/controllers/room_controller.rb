@@ -4,7 +4,7 @@ class RoomController < ApplicationController
   in_place_edit_for :room, :mac
 
   def index
-    @rooms = Room.find :all
+    @rooms = Room.find :all, :order => :dns
   end
 
   def edit
