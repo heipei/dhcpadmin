@@ -1,5 +1,4 @@
 class Room < ActiveRecord::Base
-  belongs_to :machine
 
   HUMANIZED_ATTRIBUTES = {
     :mac => "MAC-Adresse",

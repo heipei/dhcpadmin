@@ -3,10 +3,10 @@
 
 <% @rooms.each do |room| %>
   <% @room = room %>
-  <tr><td><%= room.dns %></td><td><tt><%= room.ip %></tt></td><td><tt><%= in_place_editor_field :room, :mac %></tt></td>
+  <tr><td><%= room.dns %></td><td><tt><%= room.ip %></tt></td><td><tt><%= room.mac %></tt></td>
     <td>
-      <%= link_to image_tag("trash.png"), {:action => :delete, :id => room.id}, {:confirm => "Wirklich #{room.dns} l&ouml;schen?", :method => :post} %>
-      <%= link_to image_tag("edit.png"), :action => :edit, :id => room.id %>
+      <%= link_to image_tag("trash.png"), room, :confirm => "Wirklich #{room.dns} löschen?", :method => :delete %>
+      <%= link_to image_tag("edit.png"), edit_room_path(room.id) %>
     </td>
   </tr>
 <% end %>

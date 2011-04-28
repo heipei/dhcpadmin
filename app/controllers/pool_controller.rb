@@ -1,11 +1,11 @@
 class PoolController < ApplicationController
-  verify :method => :post, :only => :delete, :redirect_to => { :action => :index }
-
-  in_place_edit_for :machine, :mac
-  in_place_edit_for :machine, :comment
 
   def index
     @machines = (Machine.find :all)
+  end
+
+  def show
+    redirect_to :action => :index
   end
 
   def new
@@ -39,7 +39,7 @@ class PoolController < ApplicationController
     redirect_to :action => :index
   end
 
-  def delete
+  def destroy
     machine = Machine.find(params[:id])
     machine.destroy
     redirect_to :action => :index
@@ -105,6 +105,7 @@ class PoolController < ApplicationController
     dhcpd_config += "# Alania DHCPD-Config, generated on #{Time.now}\n"
     dhcpd_config += "##########################################################\n"
     dhcpd_config += <<-eos
+ddns-update-style ad-hoc;
 update-static-leases true;
 default-lease-time 86400;
 max-lease-time 86400;

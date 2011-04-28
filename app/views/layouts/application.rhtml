@@ -3,7 +3,8 @@
 	<title>Alania DHCPAdmin - <%= controller.controller_name.capitalize %></title>
 	<link rel="shortcut icon" href="/dhcpadmin/favicon.ico">
 	<%= stylesheet_link_tag 'style' %>
-	<%= javascript_include_tag :defaults, 'sorttable', 'jquery', :cache => true %>
+	<%= javascript_include_tag :defaults, 'sorttable', :cache => true %>
+	<%= csrf_meta_tag %>
 </head>
 
 <body>

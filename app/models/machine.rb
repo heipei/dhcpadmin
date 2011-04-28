@@ -1,5 +1,4 @@
 class Machine < ActiveRecord::Base
-  has_one :room
  
   validates_presence_of :mac, :message => "darf nicht leer sein"
 

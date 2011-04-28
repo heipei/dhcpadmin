@@ -1,8 +1,6 @@
 class RoomController < ApplicationController
   verify :method => :post, :only => :delete, :redirect_to => { :action => :index }
 
-  in_place_edit_for :room, :mac
-
   def index
     @rooms = Room.find :all, :order => :dns
   end
@@ -34,7 +32,7 @@ class RoomController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     room = Room.find(params[:id])
     room.destroy
     redirect_to :action => :index
