@@ -49,22 +49,25 @@ class PoolController < ApplicationController
     shorewall = generate_shorewall
     dhcpd = generate_dhcpd
 
-    f = File.new("#{RAILS_ROOT}/tools/generated/dhcpd.conf", "w+")
+    f = File.new("#{RAILS_ROOT}/tmp/dhcpd.conf", "w+")
     f.write(dhcpd)
     f.close
 
-    f = File.new("#{RAILS_ROOT}/tools/generated/shorewall/dynamic_maclist", "w+")
+    f = File.new("#{RAILS_ROOT}/tmp/dynamic_maclist", "w+")
     f.write(shorewall)
     f.close
 
-    dhcpd_ok = system("dhcpd -t -cf #{RAILS_ROOT}/tools/generated/dhcpd.conf 2> #{RAILS_ROOT}/tools/generated/dhcpd.log")
+    dhcpd_ok = system("dhcpd -t -cf #{RAILS_ROOT}/tmp/dhcpd.conf 2> #{RAILS_ROOT}/tmp/dhcpd.log")
     if not dhcpd_ok
-      dhcpd_error = File.open("#{RAILS_ROOT}/tools/generated/dhcpd.log", "r") {|f| f.read}
+      dhcpd_error = File.open("#{RAILS_ROOT}/tmp/dhcpd.log", "r") {|f| f.read}
     end
 
     summary = "<h1>Summary</h1>"
     summary += "<h2 class=\"green\">dynamic_maclist OK (probably)</h2>"
     summary += (dhcpd_ok ? "<h2 class=\"green\">DHCPD.conf OK</h2>" : "<h2 class=\"red\">dhcpd.conf syntax errors</h2><pre>#{dhcpd_error}</pre>")
+
+    copy_ok = system("cd #{Rails.root.to_s}/tools; ./copy_guardian.sh")
+    summary += (copy_ok ? "<h2 class=\"green\">Deploy to guardian OK</h2>" : "<h2 class=\"red\">Deploy to guardian did NOT work</h2>")
 
     headers["Content-Type"] = "text/html; charset=utf-8"
     render :text => summary + "<h3>dynamic_maclist</h3><pre>" + shorewall + "</pre>" + "<h3>dhcpd.conf</h3><pre>" + dhcpd + "</pre>", :status => :ok
@@ -102,7 +105,6 @@ class PoolController < ApplicationController
     dhcpd_config += "# Alania DHCPD-Config, generated on #{Time.now}\n"
     dhcpd_config += "##########################################################\n"
     dhcpd_config += <<-eos
-ddns-update-style ad-hoc;
 update-static-leases true;
 default-lease-time 86400;
 max-lease-time 86400;
@@ -121,7 +123,7 @@ subnet 134.130.78.0 netmask 255.255.255.128
 eos
 
     rooms.each do |m|
-      dhcpd_config += "\thost #{m.dns}\t{ hardware ethernet #{m.mac};\t fixed-address #{m.ip}; }\n"
+      dhcpd_config += "host #{m.dns}\t{ hardware ethernet #{m.mac};\tfixed-address #{m.ip}; }\n"
     end
     dhcpd_config += "}\n"
     

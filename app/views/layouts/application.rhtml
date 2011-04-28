@@ -36,7 +36,7 @@
     </div>
 
     <div>
-      <%= link_to image_tag("config.png"), :url => {:controller => :pool, :action => :export}, :options => {:remote => true}, :update => "content" %>
+      <%= link_to image_tag("config.png"), :controller => :pool, :action => :export %>
       <%= link_to "Config generieren", {:controller => :pool, :action => :export}, :remote => true %>
     </div>
   </div>
