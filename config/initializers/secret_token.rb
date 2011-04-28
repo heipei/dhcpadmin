@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Dhcpadmin::Application.config.secret_token = '277a108c842f89506028a6b917a18d694391742047c82fb0b01f22c91e9cd4289d7593bbb73d752669122961ee9eedef25f13de0cc94d78579c8e24598823918'
+Dhcpadmin::Application.config.secret_token = '1ae76e1e56b7897c53609df59cb273f351ef0932b9e792027646cd4d9b671aed7f962bcb4baa8691ed8591c6baaa6f37a074cdc9935245bd7d2b3f2267ec4bcc'

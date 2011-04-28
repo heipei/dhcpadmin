@@ -66,7 +66,7 @@ class PoolController < ApplicationController
     summary += "<h2 class=\"green\">dynamic_maclist OK (probably)</h2>"
     summary += (dhcpd_ok ? "<h2 class=\"green\">DHCPD.conf OK</h2>" : "<h2 class=\"red\">dhcpd.conf syntax errors</h2><pre>#{dhcpd_error}</pre>")
 
-    headers["Content-Type"] = "text/plain; charset=utf-8"
+    headers["Content-Type"] = "text/html; charset=utf-8"
     render :text => summary + "<h3>dynamic_maclist</h3><pre>" + shorewall + "</pre>" + "<h3>dhcpd.conf</h3><pre>" + dhcpd + "</pre>", :status => :ok
   end
 
@@ -80,7 +80,7 @@ class PoolController < ApplicationController
     shorewall_config += "##################\n"
 
     pool.each do |m|
-      shorewall_config += "eth1\t#{m.mac}\t# (#{m.creator}) [#{m.category}] #{m.comment}\n"
+      shorewall_config += "ACCEPT\teth1\t#{m.mac}\t# (#{m.creator}) [#{m.category}] #{m.comment}\n"
     end
 
     shorewall_config += "\n"
@@ -89,7 +89,7 @@ class PoolController < ApplicationController
     shorewall_config += "################\n"
 
     rooms.each do |m|
-      shorewall_config += "eth1\t#{m.mac}\t# Host #{m.dns}\n"
+      shorewall_config += "ACCEPT\teth1\t#{m.mac}\t# Host #{m.dns}\n"
     end
 
     return shorewall_config
