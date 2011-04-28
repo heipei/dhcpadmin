@@ -1,9 +1,9 @@
 <html>
 <head>
 	<title>Alania DHCPAdmin - <%= controller.controller_name.capitalize %></title>
-	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="shortcut icon" href="/favicon.ico">
 	<%= stylesheet_link_tag 'style' %>
-	<%= javascript_include_tag :defaults, 'sorttable', :cache => true %>
+	<%= javascript_include_tag :defaults, 'sorttable', 'jquery', :cache => true %>
 </head>
 
 <body>
@@ -32,12 +32,12 @@
 
     <div>
       <%= link_to image_tag("add_machine.png"), :controller => :pool, :action => :new %>
-      <%= link_to "Neues Ger&auml;t",  :controller => :pool, :action => :new %>
+      <%= link_to "Neues Gerät",  :controller => :pool, :action => :new %>
     </div>
 
     <div>
-      <%= link_to_remote image_tag("config.png"), :url => {:controller => :pool, :action => :export}, :update => "content" %>
-      <%= link_to_remote "Config generieren", :url => {:controller => :pool, :action => :export}, :update => "content" %>
+      <%= link_to image_tag("config.png"), :url => {:controller => :pool, :action => :export}, :options => {:remote => true}, :update => "content" %>
+      <%= link_to "Config generieren", {:controller => :pool, :action => :export}, :remote => true %>
     </div>
   </div>
 </div>
@@ -48,7 +48,7 @@
 	Konnte nicht gel&ouml;scht werden...
 	</div>
 
-	<%= @content_for_layout %>
+	<%= yield %>
 </div>
 
 </body>
