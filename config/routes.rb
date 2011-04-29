@@ -21,6 +21,7 @@ Dhcpadmin::Application.routes.draw do
     member do
       get 'deactivate'
       get 'activate'
+      post 'set_machine_comment'
      end
     collection do
       get 'export'

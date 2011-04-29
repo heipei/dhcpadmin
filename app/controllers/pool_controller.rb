@@ -1,5 +1,7 @@
 class PoolController < ApplicationController
 
+  in_place_edit_for :machine, :comment
+
   def index
     @machines = (Machine.find :all)
   end
@@ -105,7 +107,7 @@ class PoolController < ApplicationController
     dhcpd_config += "# Alania DHCPD-Config, generated on #{Time.now}\n"
     dhcpd_config += "##########################################################\n"
     dhcpd_config += <<-eos
-ddns-update-style ad-hoc;
+#ddns-update-style interim;
 update-static-leases true;
 default-lease-time 86400;
 max-lease-time 86400;

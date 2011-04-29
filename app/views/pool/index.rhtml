@@ -2,8 +2,9 @@
 <tr><th>MAC-Adresse</th><th>Beschreibung</th><th>Kategorie</th><th>User</th><th>Alter</th><th>Aktionen</th></tr>
 
 <% @machines.each do |m| %>
+  <% @machine = m %>
   <tr class="<%= m.active ? "active" : "inactive" %>">
-    <td><tt><%= m.mac %></tt></td><td><%= m.comment %></td><td><%= m.category %></td><td><%= m.creator %></td><td><%= l(m.created_at, :format => :jojo) %></td>
+    <td><tt><%= m.mac %></tt></td><td><%= in_place_editor_field :machine, :comment %></td><td><%= m.category %></td><td><%= m.creator %></td><td><%= l(m.created_at, :format => :jojo) %></td>
     <td><%= link_to image_tag("trash.png"), m, :confirm => "Wirklich löschen?", :method => :delete %>
     <%= link_to image_tag("edit.png"), :action => :edit, :id => m.id %>
     <% if m.active %>
