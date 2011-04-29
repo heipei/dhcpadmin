@@ -122,13 +122,14 @@ subnet 134.130.78.0 netmask 255.255.255.128
 	option domain-name-servers 134.130.78.126;
 	option routers 134.130.78.126;
 	option broadcast-address 134.130.78.127;
+}
 
 eos
 
     rooms.each do |m|
       dhcpd_config += "host #{m.dns}\t{ hardware ethernet #{m.mac};\tfixed-address #{m.ip}; }\n"
     end
-    dhcpd_config += "}\n"
+    #dhcpd_config += "}\n"
     
     return dhcpd_config
   end
