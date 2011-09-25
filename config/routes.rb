@@ -24,7 +24,7 @@ Dhcpadmin::Application.routes.draw do
       post 'set_machine_comment'
      end
     collection do
-      get 'export'
+      post 'export'
     end
   end
 
