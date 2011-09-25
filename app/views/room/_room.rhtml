@@ -1,3 +1,13 @@
+<% unless @room.errors.empty? %>
+<div id="errorExplanation" class="errorExplanation">
+<h2>Zimmer konnte aus folgenden Gründen nicht gespeichert werden:</h2>
+<ul>
+<% @room.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
 <%= form_for @room, :url => {:action => form_action} do |f| %>
 
 <table class="form">
