@@ -10,6 +10,8 @@ gem 'sqlite3', '1.3.4'
 gem 'mongrel'
 gem 'jquery-rails', '>= 1.0.12'
 gem 'sprockets'
+gem 'therubyracer'
+gem 'uglifier'
 
 # Use unicorn as the web server
 # gem 'unicorn'
