@@ -1,6 +1,6 @@
 <% unless @machine.errors.empty? %>
 <div id="errorExplanation" class="errorExplanation">
-<h2>Dieser Rechner konnte wegen folgenden Gründen nicht gespeichert werden:</h2>
+<h2>Gerät konnte wegen folgenden Gründen nicht gespeichert werden:</h2>
 <ul>
 <% @machine.errors.full_messages.each do |msg| %>
 <li><%= msg %></li>
@@ -31,3 +31,4 @@
 
 <p>MAC-Adressen bitte in der Form <tt>aa:bb:cc:dd:ee:ff</tt> notieren. <br/>
 Bitte f&uuml;lle die Felder sinnvoll aus.</p>
+<p>Nach allen Änderungen nicht "Config aktivieren" vergessen!</p>

@@ -51,17 +51,17 @@ class PoolController < ApplicationController
     shorewall = generate_shorewall
     dhcpd = generate_dhcpd
 
-    f = File.new("#{RAILS_ROOT}/tmp/dhcpd.conf", "w+")
+    f = File.new("#{Rails.root}/tmp/dhcpd.conf", "w+")
     f.write(dhcpd)
     f.close
 
-    f = File.new("#{RAILS_ROOT}/tmp/dynamic_maclist", "w+")
+    f = File.new("#{Rails.root}/tmp/dynamic_maclist", "w+")
     f.write(shorewall)
     f.close
 
-    dhcpd_ok = system("dhcpd -t -cf #{RAILS_ROOT}/tmp/dhcpd.conf 2> #{RAILS_ROOT}/tmp/dhcpd.log")
+    dhcpd_ok = system("dhcpd -t -cf #{Rails.root}/tmp/dhcpd.conf 2> #{Rails.root}/tmp/dhcpd.log")
     if not dhcpd_ok
-      dhcpd_error = File.open("#{RAILS_ROOT}/tmp/dhcpd.log", "r") {|f| f.read}
+      dhcpd_error = File.open("#{Rails.root}/tmp/dhcpd.log", "r") {|f| f.read}
     end
 
     summary = "<h1>Summary</h1>"
