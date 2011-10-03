@@ -3,7 +3,7 @@ class PoolController < ApplicationController
   in_place_edit_for :machine, :comment
 
   def index
-    @machines = (Machine.find :all, :order => :category)
+    @machines = (Machine.find :all, :order => "created_at DESC")
   end
 
   def show
