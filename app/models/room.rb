@@ -25,7 +25,7 @@ class Room < ActiveRecord::Base
   validates_format_of :mac, :with => MAC_FORMAT, :on => :update
 
   #validates_presence_of :ip, :message => "darf nicht leer sein"
-  validates_uniqueness_of :ip, :message => "ist bereits vergeben"
+  #validates_uniqueness_of :ip, :message => "ist bereits vergeben"
   validates_format_of :ip, :with => IP_FORMAT, :on => :create
   validates_format_of :ip, :with => IP_FORMAT, :on => :update
   validate :our_subnet
