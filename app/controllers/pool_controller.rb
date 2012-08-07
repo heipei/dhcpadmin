@@ -109,8 +109,8 @@ class PoolController < ApplicationController
     dhcpd_config += <<-eos
 #ddns-update-style interim;
 update-static-leases true;
-default-lease-time 86400;
-max-lease-time 86400;
+default-lease-time 7200;
+max-lease-time 43200;
 authoritative;
 log-facility daemon;
 
